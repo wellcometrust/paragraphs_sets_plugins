@@ -81,8 +81,7 @@ class CreateEntity extends ProcessPluginBase implements ProcessPluginInterface, 
       $plugin_id,
       $plugin_definition,
       $container->get('entity_type.manager'),
-      $container->get('entity_field.manager'),
-      $container->get('entity.query')
+      $container->get('entity_field.manager')
     );
   }
 
