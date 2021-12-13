@@ -2,3 +2,6 @@ services:
   plugin.manager.paragraphs_sets_plugins.process:
     class: Drupal\paragraphs_sets_plugins\PluginManager
     arguments: [process, '@container.namespaces', '@cache.discovery', '@module_handler']
+  paragraphs_sets_plugins.plugin_transform_processor:
+    class: Drupal\paragraphs_sets_plugins\PluginTransformProcessor
+    arguments: ['@plugin.manager.paragraphs_sets_plugins.process']

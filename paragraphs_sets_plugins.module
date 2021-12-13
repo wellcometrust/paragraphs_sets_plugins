@@ -28,16 +28,6 @@ function paragraphs_sets_plugins_help($route_name, RouteMatchInterface $route_ma
  */
 function paragraphs_sets_plugins_paragraphs_set_data_alter(&$data, $context) {
   // Run source data through plugin system.
-  $plugin_manager = \Drupal::service('plugin.manager.paragraphs_sets_plugins.process');
-
-  foreach ($data as $field_key => $source_info) {
-    // Skip plugin transformation if not configured.
-    if (!is_array($source_info) || !isset($source_info['plugin'])) {
-      continue;
-    }
-    // Run the transform if the plugin is available.
-    if ($plugin = $plugin_manager->createInstance($source_info['plugin'])) {
-      $data[$field_key] = $plugin->transform($source_info, $field_key, $context);
-    }
-  }
+  $plugin_processor = \Drupal::service('paragraphs_sets_plugins.plugin_transform_processor');
+  $plugin_processor->transformRecursively($data, $context);
 }
