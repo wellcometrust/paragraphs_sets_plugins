@@ -17,8 +17,8 @@ class LoadTest extends BrowserTestBase {
    *
    * @var array
    */
-  public static $modules = ['paragraphs_sets_plugins'];
-
+  protected static $modules = ['paragraphs_sets_plugins'];
+  
   /**
    * A user with permission to administer site configuration.
    *
@@ -29,7 +29,7 @@ class LoadTest extends BrowserTestBase {
   /**
    * {@inheritdoc}
    */
-  protected function setUp() {
+  protected function setUp(): void {
     parent::setUp();
     $this->user = $this->drupalCreateUser(['administer site configuration']);
     $this->drupalLogin($this->user);
