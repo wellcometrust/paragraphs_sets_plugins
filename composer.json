@@ -11,6 +11,6 @@
     "source": "http://cgit.drupalcode.org/paragraphs_sets_plugins"
   },
   "require": { 
-    "drupal/paragraphs_sets": "^2.0"
+    "drupal/paragraphs_sets": "^3.0"
   }
 }
